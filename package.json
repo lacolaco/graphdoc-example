@@ -1,0 +1,13 @@
+{
+  "name": "graphdoc-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "graphdoc -s schema.js -o docs -f"
+  },
+  "devDependencies": {
+    "@2fd/graphdoc": "^2.4.0",
+    "glob": "^7.1.2"
+  }
+}

@@ -1,0 +1,20 @@
+# Root query
+type Query {
+  # Return the hero by episode.
+  hero(
+    # If omitted, returns the hero of the whole saga. If provided, returns the hero of that particular episode.
+    episode: Episode
+  ): Character
+
+  # Return the Human by ID.
+  human(
+    # id of the human
+    id: ID!
+  ): Human
+
+  # Return the Droid by ID.
+  droid(
+    # id of the droid
+    id: ID!
+  ): Droid
+}

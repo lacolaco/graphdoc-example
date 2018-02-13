@@ -1,0 +1,8 @@
+# Root Mutation
+type Mutation {
+  # Save the favorite episode.
+  favorite(
+    # Favorite episode.
+    episode: Episode!
+  ): Episode
+}
