@@ -1,14 +1,12 @@
-const glob = require('glob');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+const { fileLoader, mergeTypes } = require('merge-graphql-schemas');
+const { buildSchema } = require('graphql');
 
-function loadSchemas() {
-  const files = glob.sync('schema/**/*.{gql,graphql}');
+const typesArray = fileLoader('schema/**/*.{gql,graphql}', {
+  recursive: true
+});
 
-  return files.map(file =>
-    fs.readFileSync(path.resolve(file), { encoding: 'utf8' })
-  );
-}
+const mergedSchema = mergeTypes(typesArray);
 
-const schemas = loadSchemas();
-exports.default = schemas;
+fs.writeFileSync('schema.gql', mergedSchema, {encoding: 'utf8'});
